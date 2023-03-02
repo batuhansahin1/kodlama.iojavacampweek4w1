@@ -1,0 +1,15 @@
+package kodlama.io.Kodlama.io.Devs.business.abstracts;
+
+import java.util.List;
+
+import kodlama.io.Kodlama.io.Devs.business.requests.AddTechnologyRequest;
+import kodlama.io.Kodlama.io.Devs.business.responses.GetAllTechnologyResponse;
+import kodlama.io.Kodlama.io.Devs.entities.concretes.Technology;
+
+public interface TechnologyService {
+	List<GetAllTechnologyResponse> getAll();
+	public void add(AddTechnologyRequest technologyRequest);
+	void delete();
+	void getById();
+	
+}

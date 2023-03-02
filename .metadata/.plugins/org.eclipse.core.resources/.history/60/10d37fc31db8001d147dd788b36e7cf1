@@ -1,0 +1,55 @@
+package kodlama.io.Kodlama.io.Devs.business.concretes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import kodlama.io.Kodlama.io.Devs.business.abstracts.TechnologyService;
+import kodlama.io.Kodlama.io.Devs.business.responses.GetAllTechnologyRequest;
+import kodlama.io.Kodlama.io.Devs.business.responses.GetAllTechnologyResponse;
+import kodlama.io.Kodlama.io.Devs.dataAccess.abstracts.TechnologyRepository;
+import kodlama.io.Kodlama.io.Devs.entities.concretes.Technology;
+
+@Service
+public class TechnologyManager  implements TechnologyService{
+
+	private TechnologyRepository technologyRepository;
+	
+	
+	
+	@Override
+	public List<GetAllTechnologyResponse> getAll() {
+		List<Technology> technologies=technologyRepository.findAll();
+		List<GetAllTechnologyResponse> technologyResponse=new ArrayList<GetAllTechnologyResponse>();
+		
+		for(Technology technology:technologies) {
+			GetAllTechnologyResponse responseItem=new GetAllTechnologyResponse();
+			responseItem.setId(technology.getId());
+			responseItem.setName(technology.getName());
+			technologyResponse.add(responseItem);
+		}
+		
+		return technologyResponse ;
+	}
+
+	@Override
+	public void add(Technology technology) {
+		
+		technologyRepository.add(technology);
+	}
+
+	@Override
+	public void delete() {
+		technologyRepository.delete();
+		
+	}
+
+	@Override
+	public void getById() {
+		
+		technologyRepository.delete();
+		
+	}
+
+}

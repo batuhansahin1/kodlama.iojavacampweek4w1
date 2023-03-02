@@ -1,0 +1,17 @@
+package kodlama.io.Kodlama.io.Devs.dataAccess.abstracts;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import kodlama.io.Kodlama.io.Devs.business.requests.CreateTechnologyRequest;
+import kodlama.io.Kodlama.io.Devs.business.responses.GetAllTechnologyResponse;
+import kodlama.io.Kodlama.io.Devs.entities.concretes.Technology;
+
+public interface TechnologyRepository extends JpaRepository<Technology, Integer> {
+List<GetAllTechnologyResponse> getAll();
+public void add(CreateTechnologyRequest technologyRequest);
+
+ void delete();
+void getById();
+}

@@ -1,0 +1,48 @@
+package kodlama.io.Kodlama.io.Devs.business.concretes;
+
+import java.util.List;
+
+import kodlama.io.Kodlama.io.Devs.business.abstracts.ProgrammingLanguageService;
+import kodlama.io.Kodlama.io.Devs.dataAccess.abstracts.ProgrammingLanguageDao;
+import kodlama.io.Kodlama.io.Devs.entities.ProgrammingLanguages;
+
+public class ProgrammingLanguageManager implements ProgrammingLanguageService {
+
+private ProgrammingLanguageDao languagesDao;
+List<ProgrammingLanguages> languages;
+
+	public ProgrammingLanguageManager(ProgrammingLanguageDao languagesDao) {
+	super();
+	this.languagesDao = languagesDao;
+
+	
+	}
+
+	@Override
+	public List<ProgrammingLanguages> getAll() {
+		//iş kuralları
+		
+		
+		
+		return languagesDao.getAll();
+	}
+
+	@Override
+	public List<ProgrammingLanguages> add(ProgrammingLanguages language) throws Exception {
+		for(ProgrammingLanguages i:languagesDao.getAll()) {
+			if(i.getName()==language.getName()) {
+				throw new Exception("Bu isim sistemde mevcuttur");
+			}
+		}
+		if(language.getName()=="") {
+			throw new Exception("Programlama dili boş geçilemez");
+		}
+		
+		
+		
+		return languagesDao.add(language);
+	}
+
+	
+	
+}

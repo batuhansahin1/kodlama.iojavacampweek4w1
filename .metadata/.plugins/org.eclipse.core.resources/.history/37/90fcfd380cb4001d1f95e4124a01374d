@@ -1,0 +1,13 @@
+package kodlama.io.Kodlama.io.Devs.dataAccess.abstracts;
+
+import java.util.List;
+
+import kodlama.io.Kodlama.io.Devs.entities.ProgrammingLanguages;
+
+public interface ProgrammingLanguageDao {
+List<ProgrammingLanguages> getAll();
+public List<ProgrammingLanguages> add(ProgrammingLanguages languages);
+public void getById(int id);
+void update(int id);
+List<ProgrammingLanguages> delete(ProgrammingLanguages languages);
+}

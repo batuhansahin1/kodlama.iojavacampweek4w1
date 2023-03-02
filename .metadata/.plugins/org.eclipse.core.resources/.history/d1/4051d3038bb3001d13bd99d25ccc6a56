@@ -1,0 +1,45 @@
+package kodlama.io.Kodlama.io.Devs.dataAccess.concretes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import kodlama.io.Kodlama.io.Devs.dataAccess.abstracts.ProgrammingLanguageDao;
+import kodlama.io.Kodlama.io.Devs.entities.ProgrammingLanguages;
+
+public class InMemoryProgrammingLanguagesDao implements ProgrammingLanguageDao {
+
+	List<ProgrammingLanguages> languages;
+	
+	
+	public InMemoryProgrammingLanguagesDao() {
+		languages= new ArrayList<ProgrammingLanguages>();
+	languages.add(new ProgrammingLanguages(1,"C"));
+	languages.add(new ProgrammingLanguages(2,"Phyton"));
+	languages.add(new ProgrammingLanguages(3,"Java"));
+	languages.add(new ProgrammingLanguages(4,"C++"));
+	languages.add(new ProgrammingLanguages(5,"Ruby"));
+	
+	}
+
+
+	@Override
+	public List<ProgrammingLanguages> getAll() {
+	
+		return languages ;
+	}
+
+
+	@Override
+	public List<ProgrammingLanguages> add(ProgrammingLanguages language) {
+		
+		languages.add(language);
+		
+		return languages ;
+		
+	}
+
+
+	
+	
+
+}
